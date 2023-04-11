@@ -8,16 +8,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
-<body>
-    <div id="app">
-        <h1>Genera 10 mail casuali</h1>
-        <ul v-if="listMail.length === 10">
-            <li v-for="mail in listMail">
-                {{mail}}
-            </li>
-        </ul>
-        <button @click="getData">Genera Mail
-        </button>
+<body class="bg-dark text-white">
+    <div class="container text-center p-5" id="app">
+        <h1 class="mb-3">Genera 10 mail casuali</h1>
+        <div class="container">
+            <ul class="list-unstyled row" v-if="listMail.length === 10">
+                <li class="col mb-3" v-for="(mail, index) in listMail" :key="index">
+                    <div class="card bg-success fw-medium">
+                        <h3 class="card-header">
+                        {{index + 1}}
+                        </h3>
+                        <div class="card-body">
+                            {{mail}}
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <button class="btn-warning btn fw-medium" @click="getData">Generate</button>
+        </div>
     </div>
 <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
